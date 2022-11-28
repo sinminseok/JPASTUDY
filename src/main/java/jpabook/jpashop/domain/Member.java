@@ -19,8 +19,10 @@ public class Member {
 
     private String city;
 
+    private String STREET;
+
     private String zipcode;
 
     @OneToMany(mappedBy = "member")
-    List<Order> orders;
+    private List<Order> orders;
 }
