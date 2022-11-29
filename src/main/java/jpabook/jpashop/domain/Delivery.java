@@ -1,13 +1,15 @@
 package jpabook.jpashop.domain;
 
 
+import jpabook.jpashop.domain.childClass.Address;
+import jpabook.jpashop.domain.status.DeliveryStatus;
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
 @Data
-public class Delivery {
+public class Delivery extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -18,9 +20,9 @@ public class Delivery {
     @OneToOne(mappedBy = "delivery")
     private Order order;
 
-    private String city;
 
-    private String zipcode;
+    @Embedded
+    private Address address;
 
     @Enumerated(value = EnumType.STRING)
     private DeliveryStatus status;

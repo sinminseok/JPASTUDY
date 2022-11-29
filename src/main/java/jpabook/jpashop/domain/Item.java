@@ -8,7 +8,9 @@ import java.util.List;
 
 @Entity
 @Data
-public class Item {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "DTYPE")
+public class Item extends BaseEntity{
 
 
     @Id

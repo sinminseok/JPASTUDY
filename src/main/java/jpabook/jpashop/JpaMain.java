@@ -15,6 +15,7 @@ public class JpaMain {
         tx.begin();
 
         try{
+            JPAFac
 
             tx.commit();
 

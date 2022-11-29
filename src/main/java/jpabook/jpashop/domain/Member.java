@@ -1,5 +1,6 @@
 package jpabook.jpashop.domain;
 
+import jpabook.jpashop.domain.childClass.Address;
 import lombok.Data;
 
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Data
-public class Member {
+public class Member extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -17,11 +18,8 @@ public class Member {
 
     private String name;
 
-    private String city;
-
-    private String STREET;
-
-    private String zipcode;
+    @Embedded
+    private Address address;
 
     @OneToMany(mappedBy = "member")
     private List<Order> orders;
